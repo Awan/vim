@@ -96,7 +96,8 @@ function! SaveIfUnsaved()
 endfunction
 
 " w!! to write file as root
-cmap w!! %!doas tee > /dev/null %
+" replace sudo with doas if you're on OpenBSD or using doas
+cmap w!! %!sudo tee > /dev/null %
 " No comments with o
 set formatoptions-=o
 " au FocusLost,BufLeave * :call SaveIfUnsaved()
